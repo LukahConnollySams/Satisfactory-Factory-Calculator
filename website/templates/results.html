@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% include 'graph.html'%}
+
+
+{% endblock %}
+
+{% block footer %}
+    <p>Note: In some cases groups of nodes on the graph can be extremely far apart. This is an issue with the layout algorithm. Current workaround to this is to <kbd>Ctrl</kbd> + <kbd>Left-Click</kbd> to select multiple nodes, and then move them as a group.</p>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% block title %}Calculator Page{% endblock %}
+
+{% block content %}
+
+<div margin="auto" float="none">
+    <h1>Calculator Page</h1>
+    <p>Use the form below to select the desired item and item production rate.</p>
+    <p>Use the <i>Recursive</i> toggle to calculate required recipes for all inputs.</p>
+    </br>
+<form method="POST">
+    <h4>Calculator:</h4>
+    <section>
+        <label for="output">Output: </label>
+        <br/>
+        <input list="outputlist" id="output" name='output' style="color:black;" placeholder="Output"/>
+            <datalist id="outputlist" style="color:black;">
+                {% for item in item_db %}
+                <option value="{{ item }}">{{ item }}</option>
+                {% endfor %}
+            </datalist> 
+    </section>
+    <br/>
+    <section>
+        <label for="per min">Items/min: </label>
+        <br/>
+        <input name="per min" placeholder="Items/min" style="color:black" min="0"/>
+    <section>
+    <br/>
+    <section>
+        <p>Recursive: </p>
+        <label>
+            <input name="recursive" type="radio" value="Yes" checked/>
+            Yes
+        </label>
+        <label></label>
+            <input name="recursive" type="radio" value="No"/>
+            No
+        </label>
+    </section>
+    <br/>
+    <button type="submit" class="btn btn-primary" name="calculate" value="Submit">Calculate</button>
+</form>
+</div>
+
+{% endblock %}
